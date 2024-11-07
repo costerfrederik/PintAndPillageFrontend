@@ -1,21 +1,21 @@
 <template>
     <div class="SettleTile">
-        <img src="../../../assets/worldmap/SettleIconWorldMap.png"/>
+        <img src="../../../assets/worldmap/SettleIconWorldMap.png" />
     </div>
 </template>
 
 <script>
-    /* eslint-disable no-console */
+/* eslint-disable no-console */
 
-    export default{}
+export default {};
 </script>
 
 <style lang="scss" scoped>
-    .SettleTile{
-        cursor: pointer;
-        img{
-            width: 40px;
-            height: 40px;
-        }
+.SettleTile {
+    cursor: pointer;
+    img {
+        width: 40px;
+        height: 40px;
     }
+}
 </style>

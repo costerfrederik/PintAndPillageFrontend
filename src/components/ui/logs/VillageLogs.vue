@@ -11,18 +11,18 @@
 </template>
 
 <script>
-    export default {
-        props: ['properties'],
-        methods: {
-            villageLogHasData: function() {
-                return this.properties.villageData.villageLog.length > 0
-            }
-        }
-    }
+export default {
+    props: ['properties'],
+    methods: {
+        villageLogHasData: function () {
+            return this.properties.villageData.villageLog.length > 0;
+        },
+    },
+};
 </script>
 
 <style lang="scss">
-    .logText {
-        font-size: 15px !important;
-    }
+.logText {
+    font-size: 15px !important;
+}
 </style>

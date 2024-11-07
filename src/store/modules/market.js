@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const state = {
     marketOffers: null,
@@ -12,85 +12,85 @@ const getters = {
 };
 
 const mutations = {
-    offers_list_fetched(state, offersList){
+    offers_list_fetched(state, offersList) {
         state.marketOffers = offersList.data;
     },
-    offers_deleted(state){
+    offers_deleted(state) {
         state.offerDeleted = true;
-    }
+    },
 };
 
 const actions = {
     /* eslint-disable */
-    makeMarketOffer({commit}, offer){
-        return new Promise((resolve => {
-            axios({url: '/api/market/offer', data: offer, method: 'POST' })
-                .then(resp => {
+    makeMarketOffer({ commit }, offer) {
+        return new Promise((resolve) => {
+            axios({ url: '/api/market/offer', data: offer, method: 'POST' })
+                .then((resp) => {
                     commit('village_fetched', resp);
                     commit('create_building', true);
-                    resolve(resp)
+                    resolve(resp);
                 })
-                .catch(err => {
-                    console.log(err)
-                })
-        }))
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
     },
-    makeVillageTrade({commit}, offer){
-        return new Promise(((resolve, reject) => {
-            axios({url: '/api/market/transfer', data: offer, method: 'POST' })
-                .then(resp => {
-                    console.log(resp)
+    makeVillageTrade({ commit }, offer) {
+        return new Promise((resolve, reject) => {
+            axios({ url: '/api/market/transfer', data: offer, method: 'POST' })
+                .then((resp) => {
+                    console.log(resp);
                     commit('village_fetched', resp);
                     commit('create_building', true);
-                    resolve(resp)
+                    resolve(resp);
                 })
-                .catch(err => {
-                    console.log(err)
-                    reject(err)
-                })
-        }))
+                .catch((err) => {
+                    console.log(err);
+                    reject(err);
+                });
+        });
     },
-    fetchMarketOffers({commit}){
-        return new Promise((resolve => {
-            axios({url: '/api/market/', method: 'GET' })
-                .then(resp => {
+    fetchMarketOffers({ commit }) {
+        return new Promise((resolve) => {
+            axios({ url: '/api/market/', method: 'GET' })
+                .then((resp) => {
                     commit('offers_list_fetched', resp);
-                    resolve(resp)
+                    resolve(resp);
                 })
-                .catch(err => {
-                    console.log(err)
-                })
-        }))
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
     },
-    acceptMarketOffer({commit}, acceptanceData){
-        return new Promise((resolve => {
-            axios({url: '/api/market/acceptOffer', data: acceptanceData, method: 'POST' })
-                .then(resp => {
+    acceptMarketOffer({ commit }, acceptanceData) {
+        return new Promise((resolve) => {
+            axios({ url: '/api/market/acceptOffer', data: acceptanceData, method: 'POST' })
+                .then((resp) => {
                     commit('village_fetched', resp);
-                    resolve(resp)
+                    resolve(resp);
                 })
-                .catch(err => {
-                    console.log(err)
-                })
-        }))
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
     },
-    deleteMarketOffer({commit}, offerId){
-        return new Promise((resolve => {
-            axios({url: '/api/market/offer/' + offerId, method: 'DELETE' })
-                .then(resp => {
+    deleteMarketOffer({ commit }, offerId) {
+        return new Promise((resolve) => {
+            axios({ url: '/api/market/offer/' + offerId, method: 'DELETE' })
+                .then((resp) => {
                     commit('offers_deleted', true);
-                    resolve(resp)
+                    resolve(resp);
                 })
-                .catch(err => {
-                    console.log(err)
-                })
-        }))
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
     },
 };
 /* eslint-disable */
-export default{
+export default {
     state,
     getters,
     mutations,
-    actions
-}
+    actions,
+};

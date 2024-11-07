@@ -11,16 +11,14 @@
 </template>
 
 <script>
-    export default {
-        props: ['properties'],
-        methods: {
-            combatLogHasData: function() {
-                return this.properties.villageData.combatLog.length > 0
-            }
+export default {
+    props: ['properties'],
+    methods: {
+        combatLogHasData: function () {
+            return this.properties.villageData.combatLog.length > 0;
         },
-    }
+    },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
